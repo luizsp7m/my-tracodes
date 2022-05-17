@@ -61,7 +61,7 @@ export function Home() {
           <label className="text-sm">Nome do produto</label>
           <input
             type="text"
-            className="bg-zinc-800 text-sm h-12 rounded px-4 text-slate-300 outline-none text-md h-10"
+            className="bg-zinc-800 text-sm h-12 rounded px-4 text-slate-300 outline-none text-md"
             value={productName}
             onChange={({ target }) => setProductName(target.value)}
           />
@@ -71,7 +71,7 @@ export function Home() {
           <label className="text-sm">Código de rastreio</label>
           <input
             type="text"
-            className="bg-zinc-800 text-sm h-12 rounded px-4 text-slate-300 outline-none text-md h-10"
+            className="bg-zinc-800 text-sm h-12 rounded px-4 text-slate-300 outline-none text-md"
             value={productCode}
             onChange={({ target }) => setProductCode(target.value)}
           />
