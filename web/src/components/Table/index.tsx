@@ -9,7 +9,7 @@ interface Props {
 
 export function Table({ products, getProducts }: Props) {
   return (
-    <div className="relative overflow-x-auto">
+    <div className="relative overflow-x-auto rounded-md">
       <table className="w-full text-sm text-left">
         <thead className="text-xs uppercase bg-gray-700">
           <TableHeader />
@@ -18,6 +18,7 @@ export function Table({ products, getProducts }: Props) {
         <tbody>
           {products.map(product => (
             <TableRow
+              key={product.id}
               product={product}
               getProducts={getProducts}
             />

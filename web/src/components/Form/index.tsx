@@ -35,7 +35,7 @@ export function Form({ getProducts }: Props) {
   return (
     <form onSubmit={addProduct} className="flex flex-col gap-5 md:flex-row md:items-end">
       <Input label="Nome do produto" value={productName} onChange={setProductName} />
-      <Input label="Código do produto" value={productCode} onChange={setProductCode} />
+      <Input label="Código de rastreio" value={productCode} onChange={setProductCode} />
       <SubmitButton />
     </form>
   );
