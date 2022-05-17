@@ -8,6 +8,7 @@ type Product = {
   id: string;
   name: string;
   code: string;
+  status: boolean;
   created: string;
 }
 
@@ -20,16 +21,17 @@ routes.post("/products", (request, response) => {
     id: uuid(),
     name,
     code,
+    status: false,
     created: new Date().toISOString(),
   };
 
   products.push(product);
 
-  return response.status(201).json(product);
+  return response.status(201).json({product});
 });
 
 routes.get("/products", (request, response) => {
-  return response.status(200).json(products);
+  return response.status(200).json({ products });
 });
 
 routes.put("/products/:productId", (request: Request, response: Response) => {
@@ -80,3 +82,19 @@ routes.get("/products/:productId", (request: Request, response: Response) => {
 
   return response.status(200).json(product);
 });
+
+routes.patch("/products/:productId/:status", (request: Request, response: Response) => {
+  const { productId, status } = request.params;
+
+  const product = products.find(product => product.id === productId);
+  
+  if (!product) {
+    return response.status(404).json({
+      error: "Product not found"
+    });
+  }
+
+  product.status = status === "true" ? true : false;
+
+  return response.status(200).json(product)
+})
