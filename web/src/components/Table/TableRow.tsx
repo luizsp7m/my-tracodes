@@ -11,8 +11,6 @@ interface Props {
 export function TableRow({ product, getProducts }: Props) {
   const [status, setStatus] = useState(product.status);
 
-  console.log(product.name + " " + product.status);
-
   async function removeProduct() {
     try {
       const response = await api.delete(`/products/${product.id}`);
